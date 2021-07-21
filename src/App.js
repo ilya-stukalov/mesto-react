@@ -11,23 +11,38 @@ function App() {
           <img 
             className="header__logo" 
             src={logo} 
-            alt="логотип" />
+            alt="логотип" 
+            />
         </div>
       </header>
       <main className="content">
         <section className="profile">
           <div className="profile__container">
             <div className="profile__avatar-overlay">
-              <img className="profile__avatar" src="#" alt="аватар" />
-              <button className="profile__button-avatar-change" src="#" alt="аватар"></button>
+              <img 
+                className="profile__avatar" 
+                src="#" 
+                alt="аватар" 
+                />
+              <button 
+                className="profile__button-avatar-change" 
+                src="#" 
+                alt="аватар">
+              </button>
             </div>
             <div className="profile__container-text">
               <h1 className="profile__name">Жак-Ив-Кусто</h1>
-              <button className="profile__edit-button button-call-popup" type="button"></button>
+              <button 
+                className="profile__edit-button button-call-popup" 
+                type="button">
+              </button>
               <p className="profile__description">Исследователь океана</p>
             </div>
           </div>
-          <button className="profile__add-button button-call-popup" type="button"></button>
+          <button 
+            className="profile__add-button button-call-popup" 
+            type="button">
+          </button>
         </section>
         <div className="elements">
         </div>
