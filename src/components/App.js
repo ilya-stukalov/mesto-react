@@ -5,15 +5,12 @@ import Footer from './Footer.js';
 import PopupWithForm from './PopupWithForm.js';
 import ImagePopup from './ImagePopup.js';
 
-
 function App() {
-
   const [isEditAvatarPopupOpen, SetEditAvatarPopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, SetAddPlacePopupOpen] = React.useState(false);
   const [isEditProfilePopupOpen, SetEditProfilePopupOpen] = React.useState(false);
   const [isImagePopupOpen, SetImagePopupOpen] = React.useState(false);
   const [selectedCard, SetSelectedCard] = React.useState({});
-
 
   function handleCardClick(card) {
     SetImagePopupOpen(true);
@@ -40,7 +37,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="page">
       <Header />
       <Main
         onEditAvatar={handleEditAvatarClick}
