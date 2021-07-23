@@ -6,7 +6,7 @@ function Main(props) {
   const [userName, setUserName] = React.useState();
   const [userDescription, setUserDescription] = React.useState();
   const [userAvatar, setUserAvatar] = React.useState();
-  const [cards, setUserCards] = React.useState([]);
+  const [cards, setCards] = React.useState([]);
 
   useEffect(() => {
     api.getUserInfo()
@@ -23,7 +23,7 @@ function Main(props) {
   useEffect(() => {
     api.getInitialCards()
       .then((res) => {
-        setUserCards(res);
+        setCards(res);
       })
       .catch((err) => {
         console.log(err);
@@ -64,12 +64,12 @@ function Main(props) {
         </button>
       </section>
       <div className="elements">
-        {cards.map(item =>
+        {cards.map((item) => (
           <Card
             key={item._id}
             card={item}
-            onCardClick={props.onCardClick}>
-          </Card>)}
+            onCardClick={props.onCardClick} />)
+            )}
       </div>
     </main>
   );

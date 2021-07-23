@@ -6,34 +6,34 @@ import PopupWithForm from './PopupWithForm.js';
 import ImagePopup from './ImagePopup.js';
 
 function App() {
-  const [isEditAvatarPopupOpen, SetEditAvatarPopupOpen] = React.useState(false);
-  const [isAddPlacePopupOpen, SetAddPlacePopupOpen] = React.useState(false);
-  const [isEditProfilePopupOpen, SetEditProfilePopupOpen] = React.useState(false);
-  const [isImagePopupOpen, SetImagePopupOpen] = React.useState(false);
-  const [selectedCard, SetSelectedCard] = React.useState({});
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+  const [isImagePopupOpen, setIsImagePopupOpen] = React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState({});
 
   function handleCardClick(card) {
-    SetImagePopupOpen(true);
-    SetSelectedCard(card);
+    setIsImagePopupOpen(true);
+    setSelectedCard(card);
   }
 
   function handleEditAvatarClick() {
-    SetEditAvatarPopupOpen(true);
+    setIsEditAvatarPopupOpen(true);
   }
 
   function handleEditProfileClick() {
-    SetEditProfilePopupOpen(true);
+    setIsEditProfilePopupOpen(true);
   }
 
   function handleAddPlaceClick() {
-    SetAddPlacePopupOpen(true);
+    setIsAddPlacePopupOpen(true);
   }
 
   function closeAllPopups() {
-    SetEditProfilePopupOpen(false);
-    SetEditAvatarPopupOpen(false);
-    SetAddPlacePopupOpen(false);
-    SetImagePopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+    setIsImagePopupOpen(false);
   }
 
   return (

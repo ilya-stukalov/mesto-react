@@ -2,7 +2,6 @@
 function ImagePopup(props) {
 
   return (
-    <>
       <div className={`popup /* ${props.isOpen ? 'popup_opened' : ''} */`} id="popup-photo">
         <div className="popup__container">
           <button
@@ -13,10 +12,9 @@ function ImagePopup(props) {
             className="popup__img"
             src={props.card.link}
             alt="всплывающее фото" />
-          <p className="popup__description"></p>
+          <p className="popup__description">{props.card.name}</p>
         </div>
       </div>
-    </>
   );
 }
 
