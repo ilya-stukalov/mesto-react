@@ -10,9 +10,9 @@ function PopupWithForm(props) {
             onClick={props.onClose}></button>
           <div className="form">
             <h2 className={`form__text ${props.formConfirm}`}>{props.text}</h2>
-            <form className="form__container avatar-form" name={`popup__${props.name}`} noValidate>
+            <form className="form__container avatar-form" name={`popup__${props.name}`}>
               {props.children}
-              <button className="form__button" type="submit">Да</button>
+              <button className="form__button" type="submit">{props.name=== "confirm" ? "Да" : "Сохранить"}</button>
             </form>
           </div>
         </div>

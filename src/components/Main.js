@@ -69,12 +69,10 @@ function Main(props) {
             key={item._id}
             card={item}
             onCardClick={props.onCardClick} />)
-            )}
+        )}
       </div>
     </main>
   );
-
-
 }
 
 export default Main;
