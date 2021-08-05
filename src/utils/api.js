@@ -36,7 +36,7 @@ class Api {
       .then(this._checkResponse);
   }
 
-  updateUserInfo(data) {
+  setUserInfo(data) {
     return fetch(`${this._baseUrl}users/me`, {
       method: 'PATCH',
       headers: {
@@ -45,7 +45,7 @@ class Api {
       },
       body: JSON.stringify({
         name: data.name,
-        about: data.description
+        about: data.about
       })
     })
       .then(this._checkResponse);
@@ -65,6 +65,16 @@ class Api {
     })
       .then(this._checkResponse);
   }
+
+  changeLikeCardStatus(id, isLiked) {
+    if (!isLiked) {
+      return this.deleteLike(id);
+    } else {
+      return this.putLike(id);
+    }
+  }
+
+
 
   putLike(id) {
     return fetch(`${this._baseUrl}cards/likes/${id}`, {
@@ -102,7 +112,7 @@ class Api {
       .then(this._checkResponse);
   }
 
-  deletePhoto(id) {
+  deleteCard(id) {
     return fetch(`${this._baseUrl}cards/${id}`, {
       method: 'DELETE',
       headers: {
