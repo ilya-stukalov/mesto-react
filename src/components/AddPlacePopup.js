@@ -2,7 +2,7 @@ import React from 'react';
 import PopupWithForm from "./PopupWithForm";
 
 
-function AddPlacePopup(props) {
+function AddPlacePopup( { onAddPlace, isOpen, onClose, } ) {
 
   const [name, setName] = React.useState('');
   const [link, setLink] = React.useState('');
@@ -16,27 +16,25 @@ function AddPlacePopup(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.onAddPlace({
+    onAddPlace({
       name,
       link,
     });
-    setName('');
-    setLink('');
   }
 
-  function handleClose() {
-    props.onClose();
+  React.useEffect(() => {
     setName('');
     setLink('');
-  }
+  }, [isOpen]);
 
   return (
     <PopupWithForm
-      onClose={handleClose}
-      isOpen={props.isOpen}
+      onClose={onClose}
+      isOpen={isOpen}
       onSubmit={handleSubmit}
       name="edit-card"
-      text="Новое место">
+      text="Новое место"
+      buttonName="Сохранить">
       <fieldset className="form__main-info">
         <input
           className="form__item form__item_type_name"

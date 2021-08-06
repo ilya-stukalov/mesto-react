@@ -2,34 +2,37 @@ import React from 'react';
 import PopupWithForm from "./PopupWithForm";
 
 
-function EditAvatarPopup(props) {
+function EditAvatarPopup({ onUpdateAvatar, onClose, isOpen }) {
 
-  const EditAvatarPopupRef = React.useRef();
+  const editAvatarPopupRef = React.useRef();
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.onUpdateAvatar({
-      link: EditAvatarPopupRef.current.value,
+    onUpdateAvatar({
+      link: editAvatarPopupRef.current.value,
     });
-    EditAvatarPopupRef.current.value = '';
   }
 
   function handleClose() {
-    props.onClose();
-    EditAvatarPopupRef.current.value = '';
+    onClose();
   }
+
+  React.useEffect(() => {
+    editAvatarPopupRef.current.value = '';
+  }, [isOpen]);
 
   return (
     <PopupWithForm
       onClose={handleClose}
-      isOpen={props.isOpen}
+      isOpen={isOpen}
       onSubmit={handleSubmit}
       name="edit-avatar"
-      text="Обновить аватар">
+      text="Обновить аватар"
+      buttonName="Сохранить">
       <fieldset className="form__main-info">
         <input
           className="form__item form__item_type_avatar"
-          ref={EditAvatarPopupRef}
+          ref={editAvatarPopupRef}
           name="link"
           id="avatar-link-input"
           type="url"
